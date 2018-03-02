@@ -1,13 +1,21 @@
 Package: QdecR
 Type: Package
-Title: What the Package Does (Title Case)
-Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Title: Vertex-wise statistical analysis
+Version: 0.5.0
+Authors@R: c(
+    person("Ryan", "Muetzel", email = "r.muetzel@erasmusmc.nl", role = "cre"),
+    person("Sander", "Lamballais", email = "s.lamballaistessensohn@erasmusmc.nl", role = "aut")
+    )
+Description: Whole-brain(hemispehere) analysis of FreeSurfer MGH format data
+    The code utilizes mutliple linear regression at each vertex
+    Multiply imputed datasets are possible.
+    Multiple testing correction is achieved using MCZ simulations from FreeSurfer
+    Must be run on a Mac or Unix system with FREESURFER_HOME env set in path
+License: GPL-3
 Encoding: UTF-8
 LazyData: true
-Imports: Rcpp (>= 0.12.10)
-LinkingTo: Rcpp
+Imports: foreach,
+    doMC,
+    bigmemory,
+    RcppEigen
+RoxygenNote: 6.0.1
