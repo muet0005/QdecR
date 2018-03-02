@@ -675,6 +675,14 @@ run_lm_VertexWiseParRcpp_Y <- function(idVar,
   finalMask <- gsub(".mgh", ".finalMask.mgh", mgh)
   runMriSurfCluster(outDirHemiBase, hemi, mghBaseName, fwhm, mask = finalMask, verbose = verbose)
 
+  #There seem to be some memory management issues
+  #try cleaning out the big stuff
+  memItems <- c('mghBm', 'statBm', 'eresBm')
+  for (m in memItems){
+    rm(m)
+  }
+  rm(mghData)
+  gc(TRUE)
   # End
   message("Done.")
   return(NULL)
